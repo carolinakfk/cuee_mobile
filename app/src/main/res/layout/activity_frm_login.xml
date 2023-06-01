@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".activities.frmLogin">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="316dp"
+        android:layout_height="212dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/reloj"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TableRow
+        android:id="@+id/tblUsuario"
+        android:layout_width="321dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/logo"
+        app:layout_constraintStart_toStartOf="@+id/logo"
+        app:layout_constraintTop_toBottomOf="@+id/logo">
+
+        <TextView
+            android:id="@+id/lblUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usuario"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/txtUsuario"
+            android:layout_width="256dp"
+            android:layout_height="match_parent"
+            android:inputType="text"
+            android:text="" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tblClave"
+        android:layout_width="325dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/tblUsuario"
+        app:layout_constraintStart_toStartOf="@+id/tblUsuario"
+        app:layout_constraintTop_toBottomOf="@+id/tblUsuario">
+
+        <TextView
+            android:id="@+id/lblClave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clave"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/txtClave"
+            android:layout_width="277dp"
+            android:layout_height="match_parent"
+            android:inputType="text"
+            android:text="" />
+
+    </TableRow>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Aceptar"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/tblClave"
+        app:layout_constraintStart_toStartOf="@+id/tblClave"
+        app:layout_constraintTop_toBottomOf="@+id/tblClave" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

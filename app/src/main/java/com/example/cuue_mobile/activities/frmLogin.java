@@ -7,16 +7,26 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.example.cuue_mobile.Clases.pBase;
 import com.example.cuue_mobile.R;
 
-public class frmLogin extends AppCompatActivity {
+import java.io.File;
 
-    //private Realm mRealm;
+import io.realm.Realm;
+
+public class frmLogin extends pBase {
+
+    private Realm mRealm;
     protected InputMethodManager keyboard;
+
+    public TextView txtVersion, txtUsuario, txtClave;
+
+    private String parNumVer = "1.0.1 / 18-08-2023";
+    private String parTipoVer = "CUEE QAS";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +51,21 @@ public class frmLogin extends AppCompatActivity {
             if (Build.VERSION.SDK_INT >= 20) {
 
                 if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
-                        && checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                   // startApplication();
+                        && checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+                        && checkSelfPermission(Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED
+                        && checkCallingOrSelfPermission(Manifest.permission.WAKE_LOCK) == PackageManager.PERMISSION_GRANTED
+                        && checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED
+                        && checkSelfPermission(Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED) {
+                    startApplication();
                 } else {
                     ActivityCompat.requestPermissions(this,
                             new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                                    Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+                                    Manifest.permission.ACCESS_FINE_LOCATION,
+                                    Manifest.permission.CALL_PHONE,
+                                    Manifest.permission.CAMERA,
+                                    Manifest.permission.WAKE_LOCK,
+                                    Manifest.permission.READ_PHONE_STATE
+                            }, 1);
                 }
             }
 
@@ -54,6 +73,29 @@ public class frmLogin extends AppCompatActivity {
             alert(new Object() {
             }.getClass().getEnclosingMethod().getName()+ e.getMessage());
         }
+    }
+
+    private void startApplication() {
+
+        File ffile;
+
+        try {
+
+            super.InitBase();
+
+            txtVersion = findViewById(R.id.txtVersion);
+            txtUsuario = findViewById(R.id.txtUsuario);
+            txtClave = findViewById(R.id.txtClave);
+
+            txtVersion.setText(" Version " + parNumVer + " / " + parTipoVer);
+
+            txtUsuario.requestFocus();
+
+        } catch (Exception e) {
+            addlog(new Object() {}.getClass().getEnclosingMethod().getName(), e.getMessage(), "");
+            msgbox(new Object() {}.getClass().getEnclosingMethod().getName() + " . " + e.getMessage());
+        }
+
     }
 
     protected void alert(String msg)

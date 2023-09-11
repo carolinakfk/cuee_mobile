@@ -19,10 +19,11 @@
 
     <TableRow
         android:id="@+id/tblUsuario"
-        android:layout_width="321dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="229dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="64dp"
         app:layout_constraintEnd_toEndOf="@+id/logo"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="@+id/logo"
         app:layout_constraintTop_toBottomOf="@+id/logo">
 
@@ -35,16 +36,17 @@
 
         <EditText
             android:id="@+id/txtUsuario"
-            android:layout_width="256dp"
+            android:layout_width="159dp"
             android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
             android:inputType="text"
             android:text="" />
     </TableRow>
 
     <TableRow
         android:id="@+id/tblClave"
-        android:layout_width="325dp"
-        android:layout_height="37dp"
+        android:layout_width="229dp"
+        android:layout_height="40dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="@+id/tblUsuario"
         app:layout_constraintStart_toStartOf="@+id/tblUsuario"
@@ -59,9 +61,10 @@
 
         <EditText
             android:id="@+id/txtClave"
-            android:layout_width="277dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="text"
+            android:layout_marginLeft="35dp"
+            android:inputType="textPassword"
             android:text="" />
 
     </TableRow>
@@ -76,5 +79,74 @@
         app:layout_constraintEnd_toEndOf="@+id/tblClave"
         app:layout_constraintStart_toStartOf="@+id/tblClave"
         app:layout_constraintTop_toBottomOf="@+id/tblClave" />
+
+    <TableRow
+        android:layout_width="397dp"
+        android:layout_height="42dp"
+        tools:layout_editor_absoluteX="7dp"
+        tools:layout_editor_absoluteY="283dp" >
+
+        <TextView
+            android:id="@+id/txtRuta"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:text="Ruta: "
+            android:textSize="20sp" />
+
+    </TableRow>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="409dp"
+        android:layout_height="48dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="100dp"
+        android:background="#FF7450A4"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        tools:layout_editor_absoluteX="1dp">
+
+        <TextView
+            android:id="@+id/txtVersion"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|center_vertical"
+            android:onClick="doRegister"
+            android:paddingRight="10dp"
+            android:text="Version"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="409dp"
+        android:layout_height="48dp"
+        android:background="#FF7450A4"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="1dp">
+
+        <TextView
+            android:id="@+id/txtTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="0dp"
+            android:clickable="true"
+            android:gravity="center|center_vertical"
+            android:onClick="doRegister"
+            android:paddingRight="10dp"
+            android:text="CUEE"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#FFFFFF"
+            android:textSize="34sp" />
+    </RelativeLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
